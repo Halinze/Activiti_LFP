@@ -8,9 +8,24 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-
     <artifactId>activiti-dao</artifactId>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.css</groupId>
+            <artifactId>activiti-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.css</groupId>
+            <artifactId>activiti-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+
 
 
 </project>
