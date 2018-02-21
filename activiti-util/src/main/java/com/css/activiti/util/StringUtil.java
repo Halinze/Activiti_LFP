@@ -4,64 +4,65 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ×Ö·û´®¹¤¾ßÀà
- * @author 
+ * å­—ç¬¦ä¸²å·¥å…·ç±»
+ * @author
  *
  */
 public class StringUtil {
 
-	/**
-	 * ÅĞ¶ÏÊÇ·ñÊÇ¿Õ
-	 * @param str
-	 * @return
-	 */
-	public static boolean isEmpty(String str){
-		if(str==null||"".equals(str.trim())){
-			return true;
-		}else{
-			return false;
-		}
-	}
-	
-	/**
-	 * ÅĞ¶ÏÊÇ·ñ²»ÊÇ¿Õ
-	 * @param str
-	 * @return
-	 */
-	public static boolean isNotEmpty(String str){
-		if((str!=null)&&!"".equals(str.trim())){
-			return true;
-		}else{
-			return false;
-		}
-	}
-	
-	/**
-	 * ¸ñÊ½»¯Ä£ºı²éÑ¯
-	 * @param str
-	 * @return
-	 */
-	public static String formatLike(String str){
-		if(isNotEmpty(str)){
-			return "%"+str+"%";
-		}else{
-			return null;
-		}
-	}
-	
-	/**
-	 * ¹ıÂËµô¼¯ºÏÀïµÄ¿Õ¸ñ
-	 * @param list
-	 * @return
-	 */
-	public static List<String> filterWhite(List<String> list){
-		List<String> resultList=new ArrayList<String>();
-		for(String l:list){
-			if(isNotEmpty(l)){
-				resultList.add(l);
-			}
-		}
-		return resultList;
-	}
+    /**
+     * åˆ¤æ–­æ˜¯å¦æ˜¯ç©º
+     * @param str
+     * @return
+     */
+    public static boolean isEmpty(String str){
+        if(str==null||"".equals(str.trim())){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * åˆ¤æ–­æ˜¯å¦ä¸æ˜¯ç©º
+     * @param str
+     * @return
+     */
+    public static boolean isNotEmpty(String str){
+        if((str!=null)&&!"".equals(str.trim())){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * æ ¼å¼åŒ–æ¨¡ç³ŠæŸ¥è¯¢
+     * @param str
+     * @return
+     */
+    public static String formatLike(String str){
+        if(isNotEmpty(str)){
+            return "%"+str+"%";
+        }else{
+            return null;
+        }
+    }
+
+    /**
+     * è¿‡æ»¤æ‰é›†åˆé‡Œçš„ç©ºæ ¼
+     * @param list
+     * @return
+     */
+    public static List<String> filterWhite(List<String> list){
+        List<String> resultList=new ArrayList<String>();
+        for(String l:list){
+            if(isNotEmpty(l)){
+                resultList.add(l);
+            }
+        }
+        return resultList;
+    }
 
 }
+
