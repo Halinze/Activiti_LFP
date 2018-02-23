@@ -31,7 +31,6 @@ public class GroupController {
     @RequestMapping("/findGroup")
     @ResponseBody
      public List<Group> findGroup(){
-        System.out.println("=======================caoshisheng===============================");
         return groupService.fingGroup();
      }
 
