@@ -41,9 +41,11 @@
         <property name="basePackage" value="com.css.activiti.mapper"/>
     </bean>
 
-	<!--加载其他的spring配置文件-->
-    <import resource="classpath:activiti-context.xml"/>
+
     <!--这个配置文件会生效吗-->
-    <import resource="classpath:applicationContext-*.xml"/>
+    <import resource="classpath:applicationContext-service.xml"/>
+    <import resource="classpath:applicationContext-trans.xml"/>
+    <!--加载其他的spring配置文件-->
+    <import resource="classpath:activiti-context.xml"/>
 
 </beans>
