@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.css.activiti.mapper.MemberShipMapper">
+
+
+    <!--这个不是很熟-->
+    <resultMap id="MemberShipResult" type="MemberShip">
+
+        <result property="userId" column="user_id_"/>
+        <result property="groupId" column="group_id_"/>
+        <collection property="user" column="user_id_"
+                    ofType="com.css.activiti.model.User">
+            <result property="id" column="id_"/>
+            <result property="firstName" column="first_"/>
+            <result property="lastName" column="last_"/>
+            <result property="email" column="email_"/>
+            <result property="password" column="pwd_"/>
+        </collection>
+
+        <collection property="group" column="group_id_"
+                    ofType="com.css.activiti.model.Group">
+            <result property="id" column="id_"/>
+            <result property="name" column="name_"/>
+        </collection>
+
+    </resultMap>
+
+
+    <select id="userLogin" parameterType="Map" resultMap="MemberShipResult">
+
+        SELECT * FROM act_id_user u ,
+                      act_id_group g ,
+                      act_id_membership m
+          WHERE u.ID_ = #{userName}
+                 AND u.PWD_= #{password}
+                AND g.ID_ = #{groupId}
+                AND u.ID_ = m.USER_ID_
+                   AND m.GROUP_ID_= g.ID_
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

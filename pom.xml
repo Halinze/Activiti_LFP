@@ -23,7 +23,7 @@
         <mybatis-spring.version>1.2.3</mybatis-spring.version>
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.12</slf4j.version>
-        <activiti-spring.version>5.19.0.3</activiti-spring.version>
+        <activiti-spring.version>5.19.0.2</activiti-spring.version>
     </properties>
 
     <dependencies>
