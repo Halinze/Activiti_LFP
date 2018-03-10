@@ -11,7 +11,11 @@ import java.util.Map;
  */
 public interface LeaveMapper {
 
-
+    /**
+     * 分页查询
+     * @param map
+     * @return
+     */
     public List<Leave> leavePage(Map<String,Object> map);
 
     public int leaveCount(Map<String,Object> map);

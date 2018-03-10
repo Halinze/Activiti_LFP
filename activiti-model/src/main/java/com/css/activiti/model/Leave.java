@@ -4,18 +4,18 @@ import java.util.Date;
 
 /**
  * Created by 46597 on 2018/2/24.
- *
+ * <p>
  * 请假单实体
  */
 public class Leave {
 
 
-    private Integer id ; //编号
-    private User user  ; // 请假人
-    private Date leaveDate ; // 请假日期
+    private Integer id; //编号
+    private User user; // 请假人
+    private Date leaveDate; // 请假日期
     private Integer leaveDays;// 请假原因
-    private Integer leaveReason ; // 请假原因
-    private String  state ;//状态审核 未提交  审核中 审核通过 审核未通过
+    private String leaveReason; // 请假原因
+    private String state;//状态审核 未提交  审核中 审核通过 审核未通过
     private String processInstanceId; //流程实例id；！！！
 
 
@@ -51,11 +51,11 @@ public class Leave {
         this.leaveDays = leaveDays;
     }
 
-    public Integer getLeaveReason() {
+    public String getLeaveReason() {
         return leaveReason;
     }
 
-    public void setLeaveReason(Integer leaveReason) {
+    public void setLeaveReason(String leaveReason) {
         this.leaveReason = leaveReason;
     }
 
@@ -74,4 +74,6 @@ public class Leave {
     public void setProcessInstanceId(String processInstanceId) {
         this.processInstanceId = processInstanceId;
     }
+
+
 }

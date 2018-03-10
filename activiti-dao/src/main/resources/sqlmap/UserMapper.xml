@@ -4,18 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.css.activiti.mapper.UserMapper">
 
- <select id="userLogin" resultType="User" parameterType="User">
+ <resultMap id="UserResult" type="User">
 
-     <!--该怎么写sql啊？-->
-    /* SELECT * FROM act_id_user LEFT JOIN act_id_membership ON act_id_user.`ID_`=act_id_membership.`USER_ID_`
-     WHERE PWD_='123' AND GROUP_ID_ = 'emp' AND ID_ = 'zhangsan'*/
-     //动态sql
+     <result property="id" column="id_"/>
+     <result property="firstName" column="first_"/>
+     <result property="lastName" column="last_"/>
+     <result property="email" column="email_"/>
+     <result property="password" column="pwd_"/>
+ </resultMap>
 
-
-
-
-
-
- </select>
+    <select id="findById" parameterType="String" resultMap="UserResult">
+        SELECT * from act_id_user where id_=#{id}
+    </select>
 
 </mapper>
