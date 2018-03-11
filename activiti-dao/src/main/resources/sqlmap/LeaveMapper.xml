@@ -57,10 +57,10 @@
         UPDATE t_leave
         <set>
             <if test="state!=null and state !=''">
-                state = #{state}
+                state = #{state},
             </if>
-            <if test="processInstanceId != null and processInstatnceId != '' ">
-                processInstanceId = #{processInstanceId}
+            <if test="processInstanceId != null and processInstanceId != '' ">
+                processInstanceId = #{processInstanceId},
             </if>
 
         </set>

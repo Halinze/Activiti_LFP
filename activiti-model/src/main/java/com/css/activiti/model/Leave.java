@@ -18,6 +18,13 @@ public class Leave {
     private String state;//状态审核 未提交  审核中 审核通过 审核未通过
     private String processInstanceId; //流程实例id；！！！
 
+    public String getProcessInstanceId() {
+        return processInstanceId;
+    }
+
+    public void setProcessInstanceId(String processInstanceId) {
+        this.processInstanceId = processInstanceId;
+    }
 
     public Integer getId() {
         return id;
@@ -67,13 +74,7 @@ public class Leave {
         this.state = state;
     }
 
-    public String getProcessInstanceId() {
-        return processInstanceId;
-    }
 
-    public void setProcessInstanceId(String processInstanceId) {
-        this.processInstanceId = processInstanceId;
-    }
 
 
 }

@@ -38,6 +38,7 @@ public class DeployController {
      * @param response
      * @return
      */
+    @RequestMapping("/deployPage")
     public String deployPage(String rows, String page, String s_name, HttpServletResponse response) throws Exception {
 
 
@@ -65,11 +66,14 @@ public class DeployController {
                 .listPage(pageInfo.getPageIndex(), pageInfo.getPageSize());
 
         JsonConfig jsonConfig = new JsonConfig();
-        jsonConfig.setExcludes(new String[]{"resouces"});
+        jsonConfig.setExcludes(new String[]{"resources"});
         jsonConfig.registerJsonValueProcessor(java.util.Date.class, new DateJsonValueProcessor("yyyy-MM-dd hh:mm:ss"));
 
         JSONObject result = new JSONObject();
-        JSONArray jsonArray = JSONArray.fromObject(deployList, jsonConfig);
+        JSONArray jsonArray = null  ;
+        if(deployList != null) {
+            jsonArray = JSONArray.fromObject(deployList, jsonConfig);
+        }
         result.put("rows", jsonArray);
         result.put("total", deployCount);
         ResponseUtil.write(response, result);

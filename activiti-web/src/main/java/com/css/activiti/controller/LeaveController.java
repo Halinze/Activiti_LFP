@@ -111,13 +111,17 @@ public class LeaveController {
         HashMap<String, Object> variables = new HashMap<>();
         variables.put("leaveId",leaveId);
         //启动流程
-        ProcessInstance pi = runtimeService.startProcessInstanceByKey("acvivitiemployeeProcess", variables);
+        ProcessInstance pi = runtimeService.startProcessInstanceByKey("activitiemployeeProcess", variables);
 
         //根据流程实例Id 查询任务
         Task task = taskService.createTaskQuery().processInstanceId(pi.getProcessInstanceId()).singleResult();
         //完成填写请假单的任务
         taskService.complete(task.getId());
         Leave leave = leaveService.findById(leaveId);
+        leave.setState("审核中");
+        leave.setProcessInstanceId(pi.getProcessInstanceId());
+
+
         //修改请假单状态
         leaveService.updateLeave(leave);
         JSONObject result = new JSONObject();
