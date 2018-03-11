@@ -27,38 +27,32 @@ public class UserController {
     //入参：userName  password groupId 这里得返回json
 
     @RequestMapping("/userLogin")
-    public String userLogin(HttpServletRequest request , HttpServletResponse response) throws Exception {
+    public String userLogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         HashMap<String, Object> map = new HashMap<>();
-        map.put("userName" ,request.getParameter("userName"));
-        map.put("password" , request.getParameter("password"));
-        map.put("groupId" , request.getParameter("groupId"));
+        map.put("userName", request.getParameter("userName"));
+        map.put("password", request.getParameter("password"));
+        map.put("groupId", request.getParameter("groupId"));
 
         MemberShip memberShip = memberShipService.userLogin(map);
+        System.out.println(memberShip.getGroup().getId() + " "+ memberShip.getUser().getId());
 
         JSONObject result = new JSONObject();
 
-        if(memberShip == null){
-            result.put("success" , false);
-            result.put("errorInfo" , "用户名或密码错误");
-        }else {
-            result.put("success",true);
-            request.getSession().setAttribute("currentMemberShip",memberShip);
+        if (memberShip == null) {
+            result.put("success", false);
+            result.put("errorInfo", "用户名或密码错误");
+        } else {
+            result.put("success", true);
+            request.getSession().setAttribute("currentMemberShip", memberShip);
         }
 
-        ResponseUtil.write(response,result);
+        ResponseUtil.write(response, result);
 
         return null;
 
 
     }
-
-
-
-
-
-
-
 
 
 }

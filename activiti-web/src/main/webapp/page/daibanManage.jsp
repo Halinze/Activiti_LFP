@@ -32,7 +32,7 @@
 <body style="margin: 1px">
 <table id="dg" title="待办任务管理" class="easyui-datagrid"
   fitColumns="true" pagination="true" rownumbers="true"
-  url="${pageContext.request.contextPath}/task/taskPage.action?userId=${currentMemberShip.user.id }" fit="true" toolbar="#tb">
+  url="${pageContext.request.contextPath}/task/taskPage.action?groupId=${currentMemberShip.group.id }" fit="true" toolbar="#tb">
  <thead>
  	<tr>
  		<th field="cb" checkbox="true" align="center"></th>

@@ -40,4 +40,8 @@ public class LeaveService {
         return leaveMapper.updateLeave(leave);
     }
 
+    public Leave getLeaveByTaskId(String processInstanceId) {
+
+        return leaveMapper.getLeaveByTaskId(processInstanceId);
+    }
 }

@@ -12,7 +12,7 @@
         <result property="groupId" column="group_id_"/>
         <collection property="user" column="user_id_"
                     ofType="com.css.activiti.model.User">
-            <result property="id" column="id_"/>
+            <result property="id" column="u_id"/>
             <result property="firstName" column="first_"/>
             <result property="lastName" column="last_"/>
             <result property="email" column="email_"/>
@@ -21,7 +21,7 @@
 
         <collection property="group" column="group_id_"
                     ofType="com.css.activiti.model.Group">
-            <result property="id" column="id_"/>
+            <result property="id" column="g_id"/>
             <result property="name" column="name_"/>
         </collection>
 
@@ -30,7 +30,7 @@
 
     <select id="userLogin" parameterType="Map" resultMap="MemberShipResult">
 
-        SELECT * FROM act_id_user u ,
+        SELECT m.user_id_,m.group_id_,u.ID_ as u_id ,u.FIRST_,u.LAST_,u.PWD_,u.EMAIL_,g.ID_ as g_id,g.NAME_ FROM act_id_user u ,
                       act_id_group g ,
                       act_id_membership m
           WHERE u.ID_ = #{userName}

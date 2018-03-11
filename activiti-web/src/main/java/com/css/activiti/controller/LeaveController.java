@@ -133,6 +133,32 @@ public class LeaveController {
     }
 
 
+    /**
+     * 查询流程信息？  填充审核页面！
+     *
+     * @param response
+     * @param taskId
+     * @return
+     */
+    @RequestMapping("/getLeaveByTaskId")
+    public String getLeaveByTaskId(HttpServletResponse response, String taskId) throws Exception {
+
+        System.out.println("caoshisheng");
+        //这里是个联系点！
+        Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
+
+        Leave leave = leaveService.getLeaveByTaskId(task.getProcessInstanceId());
+
+        JSONObject result = new JSONObject();
+        result.put("leave",JSONObject.fromObject(leave));
+        ResponseUtil.write(response,result);
+
+
+        return null;
+    }
+
+
+
 
 
 
